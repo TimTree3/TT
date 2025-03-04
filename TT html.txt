@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>השאירו פרטים עכשיו</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            direction: rtl;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 38px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #ffdd57;
+        }
+
+        .benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 12px 0;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .benefits li:hover {
+            transform: scale(1.05);
+        }
+
+        .form-container {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .form-container input {
+            width: 80%;
+            max-width: 400px;
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Heebo', sans-serif;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #0f172a;
+            outline: none;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .form-container input:focus {
+            background: #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .cta {
+            display: block;
+            margin-top: 15px;
+            padding: 18px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            background: #25D366;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            animation: pulse 1.5s infinite;
+            border: none;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .cta:hover {
+            background: #1EBE5F;
+            transform: scale(1.08);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #ffdd57;
+        }
+
+        #message {
+            display: none;
+            margin: 20px auto;
+            font-weight: bold;
+            color: green;
+            padding: 8px;
+            background-color: beige;
+            border-radius: 4px;
+            border: 1px solid aquamarine;
+            max-width: 400px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>הצטרפו לצוות 3 – עבודה עם כסף טוב והמון זמן פנוי</h1>
+        <p>רוצה שיעבירו לך כסף לחשבון תוך כדי שאתה יושב בנוחות על הכיסא?  
+        זה הזמן להצטרף לצוות 3 ולקבל הזדמנות אמיתית</p>
+
+        <ul class="benefits">
+            <li>💸 40 ש"ח לשעה</li>
+            <li>🪑 יושבים בנחת, פותחים שער בלחיצת כפתור, עושים סיבוב קצר פעמיים במשמרת</li>
+            <li>🕒 משמרות גמישות (משרה מלאה/חלקית, משמרות בוקר בעיקר) – מתאים גם ללימודים או לעבודה נוספת</li>
+            <li>🎁 קורס נשק במתנה + אקדח אישי + כספת + תנאים סוציאליים מהיום הראשון</li>
+            <li>🌟 עבודה נוחה לנשים ולגברים עם הזדמנויות קידום אמיתיות</li>
+            <li>📍 <span class="highlight">מיקום:</span> רחובות</li>
+        </ul>
+
+        <form id="contactForm" class="form-container" method="POST">
+            <input type="text" name="שם" placeholder="שם" required>
+            <input type="tel" name="מספר טלפון" placeholder="מספר טלפון" required>
+            <button type="submit" class="cta" id="submit-button">📩 בכפתור הזה שולחים את הפרטים וזהו, נשאר רק להתפלל שתתקבלו</button>
+        </form>
+
+        <div id="message"></div>
+
+        <p class="footer">מספר המקומות מוגבל – אל תפספס\י את ההזדמנות</p>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // מונע את שליחת הטופס בדרך הרגילה
+
+            document.getElementById("message").textContent = "שולח פרטים...";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("submit-button").disabled = true;
+
+            // איסוף הנתונים מהטופס
+            var formData = new FormData(this);
+            var keyValuePairs = [];
+            for (var pair of formData.entries()) {
+                keyValuePairs.push(pair[0] + "=" + pair[1]);
+            }
+            var formDataString = keyValuePairs.join("&");
+
+            // שליחת ה-POST ל-Google Apps Script
+            fetch(
+                "https://script.google.com/macros/s/AKfycbw0yqIz4DVBOJRbC-5AGoJMmx7beT8RvgRfVa-OHPuSGmgNqEQc18WhyxEqUeovhCDo/exec",
+                {
+                    redirect: "follow",
+                    method: "POST",
+                    body: formDataString,
+                    headers: {
+                        "Content-Type": "text/plain;charset=utf-8",
+                    },
+                }
+            )
+            .then(function (response) {
+                if (response.ok) {
+                    return response;
+                } else {
+                    throw new Error("שליחת הפרטים נכשלה");
+                }
+            })
+            .then(function (data) {
+                // הצגת הודעת הצלחה
+                document.getElementById("message").textContent = "הפרטים נשלחו בהצלחה";
+                document.getElementById("message").style.backgroundColor = "green";
+                document.getElementById("message").style.color = "beige";
+                document.getElementById("submit-button").disabled = false;
+                document.getElementById("contactForm").reset();
+
+                setTimeout(function () {
+                    document.getElementById("message").textContent = "";
+                    document.getElementById("message").style.display = "none";
+                }, 2600);
+            })
+            .catch(function (error) {
+                console.error(error);
+                document.getElementById("message").textContent = "שגיאה בשליחת הפרטים. נסה שוב";
+                document.getElementById("message").style.display = "block";
+                document.getElementById("submit-button").disabled = false;
+            });
+        });
+    </script>
+
+</body>
+</html>
