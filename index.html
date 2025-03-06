@@ -33,55 +33,32 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            overflow-x: hidden;
         }
 
         h1 {
-            font-size: 38px;
+            font-size: 48px;
             font-weight: bold;
             margin-bottom: 20px;
             text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        p {
-            font-size: 22px;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
-        .highlight {
-            font-weight: bold;
-            color: #ffdd57;
-        }
-
-        .benefits {
-            list-style: none;
-            padding: 0;
-        }
-
-        .benefits li {
-            background: rgba(255, 255, 255, 0.2);
-            margin: 12px 0;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 22px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .benefits li:hover {
-            transform: scale(1.05);
+            width: calc(100% - 10px);
+            line-height: 1.2;
+            margin-left: 5px;
+            margin-right: 5px;
         }
 
         .form-container {
-            margin-top: 30px;
+            margin-top: 14px;
             display: flex;
             flex-direction: column;
             gap: 15px;
             align-items: center;
+        }
+
+        .form-container label {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffdd57;
         }
 
         .form-container input {
@@ -104,6 +81,36 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
+        .form-container select {
+            width: 80%;
+            max-width: 400px;
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Heebo', sans-serif;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #0f172a;
+            outline: none;
+            transition: 0.3s;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .form-container select:focus {
+            background: #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .form-header {
+            font-size: 42px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+            margin-bottom: 10px;
+        }
+
         .cta {
             display: block;
             margin-top: 15px;
@@ -114,7 +121,7 @@
             background: #25D366;
             text-decoration: none;
             border-radius: 8px;
-            transition: 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-align: center;
             cursor: pointer;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
@@ -122,16 +129,25 @@
             border: none;
             width: 80%;
             max-width: 400px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) translateZ(0);
+            will-change: transform, box-shadow;
         }
 
         .cta:hover {
             background: #1EBE5F;
-            transform: scale(1.08);
+            transform: perspective(1000px) translateZ(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta:active {
+            transform: perspective(1000px) translateZ(-5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
 
@@ -139,6 +155,14 @@
             margin-top: 30px;
             font-size: 18px;
             color: #ffdd57;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer .copyright {
+            font-size: 6px;
+            color: #fff;
         }
 
         #message {
@@ -153,91 +177,190 @@
             max-width: 400px;
         }
 
+        #message.error {
+            color: red;
+            background-color: #ffcccb;
+            border: 1px solid red;
+        }
+
+        /* התאמות למובייל */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+                line-height: 1.3;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            .form-container label {
+                font-size: 16px;
+            }
+
+            .form-container input, .form-container select {
+                width: 90%;
+                max-width: none;
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .form-header {
+                font-size: 32px;
+            }
+
+            .cta {
+                width: 90%;
+                max-width: none;
+                font-size: 18px;
+                padding: 14px;
+                animation: none;
+            }
+
+            .footer {
+                margin-top: 20px;
+                font-size: 16px;
+                gap: 5px;
+            }
+
+            .footer .copyright {
+                font-size: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .form-container label {
+                font-size: 14px;
+            }
+
+            .form-container input, .form-container select {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .form-header {
+                font-size: 26px;
+            }
+
+            .cta {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .footer {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>הצטרפו לצוות 3 – עבודה עם כסף טוב והמון זמן פנוי</h1>
-        <p>רוצה שיעבירו לך כסף לחשבון תוך כדי שאתה יושב בנוחות על הכיסא?  
-        זה הזמן להצטרף לצוות 3 ולקבל הזדמנות אמיתית</p>
-
-        <ul class="benefits">
-            <li>💸 40 ש"ח לשעה</li>
-            <li>🪑 יושבים בנחת, פותחים שער בלחיצת כפתור, עושים סיבוב קצר פעמיים במשמרת</li>
-            <li>🕒 משמרות גמישות (משרה מלאה/חלקית, משמרות בוקר בעיקר) – מתאים גם ללימודים או לעבודה נוספת</li>
-            <li>🎁 קורס נשק במתנה + אקדח אישי + כספת + תנאים סוציאליים מהיום הראשון</li>
-            <li>🌟 עבודה נוחה לנשים ולגברים עם הזדמנויות קידום אמיתיות</li>
-            <li>📍 <span class="highlight">מיקום:</span> רחובות</li>
-        </ul>
-
+        <h1>השאירו פרטים עכשיו</h1>
         <form id="contactForm" class="form-container" method="POST">
-            <input type="text" name="שם" placeholder="שם" required>
-            <input type="tel" name="מספר טלפון" placeholder="מספר טלפון" required>
-            <button type="submit" class="cta" id="submit-button">📩 בכפתור הזה שולחים את הפרטים וזהו, נשאר רק להתפלל שתתקבלו</button>
+            <h2 class="form-header">מלא את השאלון</h2>
+            <label for="q1">מה הגיל שלך?</label>
+            <input type="number" name="q1" id="q1" min="0" required>
+            <label for="q2">מה איזור המגורים?</label>
+            <input type="text" name="q2" id="q2" required>
+            <label for="q3">האם יש לך 12 שנות לימוד?</label><br>
+            <input type="radio" name="q3" value="כן" id="q3-yes" required> כן
+            <input type="radio" name="q3" value="לא" id="q3-no"> לא
+            <label for="q4">האם יש לך עבר פלילי?</label><br>
+            <input type="radio" name="q4" value="כן" id="q4-yes" required> כן
+            <input type="radio" name="q4" value="לא" id="q4-no"> לא
+            <label for="q5">האם שירות צבאי מלא?</label><br>
+            <input type="radio" name="q5" value="כן" id="q5-yes" required> כן
+            <input type="radio" name="q5" value="לא" id="q5-no"> לא
+            <label for="q6">איפה שירתת ותחת איזה תפקיד?</label>
+            <input type="text" name="q6" id="q6" required>
+            <label for="q7">האם יש רישיון לנשק?</label><br>
+            <input type="radio" name="q7" value="כן" id="q7-yes" required> כן
+            <input type="radio" name="q7" value="לא" id="q7-no"> לא
+            <label for="q8">איזו סוג משרה מחפש?</label>
+            <input type="text" name="q8" id="q8" required>
+            <label for="q9">האם פנוי בדר"כ מ-7:00 עד 17:00?</label><br>
+            <input type="radio" name="q9" value="כן" id="q9-yes" required> כן
+            <input type="radio" name="q9" value="לא" id="q9-no"> לא
+            <label for="q10">מתיי יכול להתחיל לעבוד?</label>
+            <input type="text" name="q10" id="q10" required>
+            <label for="q11">מספר פלאפון?</label>
+            <input type="tel" name="q11" id="q11" required>
+            <label for="q12">שם מלא?</label>
+            <input type="text" name="q12" id="q12" required>
+            <label for="q13">דרגו את תהליך ההרשמה שעברתם עד כה</label>
+            <select name="q13" id="q13" required>
+                <option value="1">1 - גרוע מאוד</option>
+                <option value="2">2 - לא טוב</option>
+                <option value="3">3 - סביר</option>
+                <option value="4">4 - טוב</option>
+                <option value="5" selected>5 - מצוין</option>
+            </select>
+            <button type="submit" class="cta">🚀 שלח עכשיו 🚀</button>
         </form>
 
         <div id="message"></div>
 
-        <p class="footer">מספר המקומות מוגבל – אל תפספס\י את ההזדמנות</p>
+        <div class="footer">
+            <p>מספר המקומות מוגבל – אל תפספס את ההזדמנות</p>
+            <p class="copyright">© 2025 team3shalosh@gmail.com. כל הזכויות שמורות.</p>
+        </div>
     </div>
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function (e) {
             e.preventDefault(); // מונע את שליחת הטופס בדרך הרגילה
 
-            document.getElementById("message").textContent = "שולח פרטים...";
-            document.getElementById("message").style.display = "block";
-            document.getElementById("submit-button").disabled = true;
-
-            // איסוף הנתונים מהטופס
-            var formData = new FormData(this);
-            var keyValuePairs = [];
-            for (var pair of formData.entries()) {
-                keyValuePairs.push(pair[0] + "=" + pair[1]);
+            // הוספת רטט קל בעת לחיצה (במובייל)
+            if ("vibrate" in navigator) {
+                navigator.vibrate(50); // רטט של 50 מילישניות
             }
-            var formDataString = keyValuePairs.join("&");
 
-            // שליחת ה-POST ל-Google Apps Script
-            fetch(
-                "https://script.google.com/macros/s/AKfycbw0yqIz4DVBOJRbC-5AGoJMmx7beT8RvgRfVa-OHPuSGmgNqEQc18WhyxEqUeovhCDo/exec",
-                {
-                    redirect: "follow",
-                    method: "POST",
-                    body: formDataString,
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8",
-                    },
-                }
-            )
-            .then(function (response) {
-                if (response.ok) {
-                    return response;
-                } else {
-                    throw new Error("שליחת הפרטים נכשלה");
-                }
+            const messageDiv = document.getElementById("message");
+            messageDiv.textContent = "שולח פרטים...";
+            messageDiv.style.display = "block";
+            messageDiv.classList.remove("error");
+
+            const formData = new FormData(this);
+            const keyValuePairs = [];
+            for (const pair of formData.entries()) {
+                keyValuePairs.push(`${pair[0]}=${encodeURIComponent(pair[1])}`);
+            }
+            const formDataString = keyValuePairs.join("&");
+
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLSdEvb0xX27j0K3jK8_Loue0Tbfcycjw8tqX3Ht3pX-1zpxSLw/formResponse", {
+                method: "POST",
+                body: formDataString,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                mode: "no-cors"
             })
-            .then(function (data) {
-                // הצגת הודעת הצלחה
-                document.getElementById("message").textContent = "הפרטים נשלחו בהצלחה";
-                document.getElementById("message").style.backgroundColor = "green";
-                document.getElementById("message").style.color = "beige";
-                document.getElementById("submit-button").disabled = false;
+            .then(() => {
+                messageDiv.textContent = "הפרטים נשלחו בהצלחה!";
+                messageDiv.style.display = "block";
+                messageDiv.classList.remove("error");
                 document.getElementById("contactForm").reset();
 
-                setTimeout(function () {
-                    document.getElementById("message").textContent = "";
-                    document.getElementById("message").style.display = "none";
-                }, 2600);
+                setTimeout(() => {
+                    messageDiv.style.display = "none";
+                    messageDiv.textContent = "";
+                }, 3000);
             })
-            .catch(function (error) {
-                console.error(error);
-                document.getElementById("message").textContent = "שגיאה בשליחת הפרטים. נסה שוב";
-                document.getElementById("message").style.display = "block";
-                document.getElementById("submit-button").disabled = false;
+            .catch((error) => {
+                console.error("Error:", error);
+                messageDiv.textContent = "שגיאה בשליחת הפרטים. נסה שוב.";
+                messageDiv.style.display = "block";
+                messageDiv.classList.add("error");
             });
         });
     </script>
-
 </body>
 </html>
