@@ -423,7 +423,7 @@
                 <input type="radio" name="q4" value="לא" id="q4-no">
                 <label for="q4-no">לא</label>
             </div>
-            <label for="q5">האם שירות צבאי מלא?</label>
+            <label for="q5">שירות צבאי מלא?</label>
             <div class="custom-radio">
                 <input type="radio" name="q5" value="כן" id="q5-yes" required>
                 <label for="q5-yes">כן</label>
@@ -439,7 +439,7 @@
                 <input type="radio" name="q7" value="לא" id="q7-no">
                 <label for="q7-no">לא</label>
             </div>
-            <label for="q8">סוג המשרה המועדף עלייך?</label>
+            <label for="q8">סוג המשרות המועדפות עלייך?</label>
             <div class="custom-checkbox">
                 <input type="checkbox" name="q8" value="3-4 משמרות בשבוע" id="q8-1">
                 <label for="q8-1">3-4 משמרות בשבוע</label>
@@ -448,18 +448,66 @@
                 <input type="checkbox" name="q8" value="5-6 משמרות בשבוע" id="q8-3">
                 <label for="q8-3">5-6 משמרות בשבוע</label>
             </div>
-            <label for="q9">האם פנוי בדר"כ מ-7:00 עד 17:00?</label>
+            <label for="q9">האם פנוי\ה בדר"כ מ-7:00 עד 17:00?</label>
             <div class="custom-radio">
                 <input type="radio" name="q9" value="כן" id="q9-yes" required>
                 <label for="q9-yes">כן</label>
                 <input type="radio" name="q9" value="לא" id="q9-no">
                 <label for="q9-no">לא</label>
             </div>
-            <label for="q10">מתיי יכול להתחיל לעבוד?</label>
-            <input type="text" name="q10" id="q10" required>
-            <label for="q11">מספר פלאפון?</label>
+<label for="q10-month">מהו התאריך שהכי מתאים לך להתחיל ב"עבודה"?</label>
+<div style="display: flex; gap: 10px; justify-content: center; width: 80%; max-width: 400px;">
+    <select name="q10-month" id="q10-month" required>
+        <option value="01">ינואר</option>
+        <option value="02">פברואר</option>
+        <option value="03">מרץ</option>
+        <option value="04">אפריל</option>
+        <option value="05" selected>מאי</option>
+        <option value="06">יוני</option>
+        <option value="07">יולי</option>
+        <option value="08">אוגוסט</option>
+        <option value="09">ספטמבר</option>
+        <option value="10">אוקטובר</option>
+        <option value="11">נובמבר</option>
+        <option value="12">דצמבר</option>
+    </select>
+    <select name="q10-day" id="q10-day" required>
+        <option value="01">1</option>
+        <option value="02">2</option>
+        <option value="03">3</option>
+        <option value="04">4</option>
+        <option value="05">5</option>
+        <option value="06">6</option>
+        <option value="07">7</option>
+        <option value="08">8</option>
+        <option value="09">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25" selected>25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select>
+</div>
+            <label for="q11">מספר פלאפון</label>
             <input type="tel" name="q11" id="q11" required>
-            <label for="q12">שם מלא?</label>
+            <label for="q12">שם מלא</label>
             <input type="text" name="q12" id="q12" required>
             <label for="q13">דרגו את תהליך ההרשמה שעברתם עד כה</label>
             <select name="q13" id="q13" required>
